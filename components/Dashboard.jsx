@@ -79,8 +79,8 @@ const Dashboard = () => {
           "https://api.dexscreener.com/latest/dex/pairs/bsc/0x116916C283C5D70D6F6CF4faEb55740d09fFf191"
         );
         const { data } = response;
-        const liquidityValue = data.pairs[0]?.liquidity?.usd || null;
-        const tokenPriceValue = data.pairs[0]?.priceUsd || null;
+        const liquidityValue = 0;
+        const tokenPriceValue = 0;
         setLiquidity(liquidityValue);
         setTokenPrice(tokenPriceValue);
       } catch (error) {

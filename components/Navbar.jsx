@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { BsX } from "react-icons/bs";
 import logo from "../assets/logo.png";
-import { ConnectWallet } from "@thirdweb-dev/react";
 import Image from "next/image";
-import { useAppKit } from "@reown/appkit/react";
+import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
 
 const navigation = [
   { name: "Dashboard", href: "#" },
@@ -14,7 +13,14 @@ const navigation = [
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { open, close } = useAppKit();
+  const { open } = useAppKit();
+  const { address, isConnected } = useAppKitAccount();
+
+  // Format address to show shortened version
+  const formatAddress = (address) => {
+    if (!address) return "";
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  };
 
   return (
     <div>
@@ -24,12 +30,21 @@ function Navbar() {
             <Image src={logo} alt="Logo" />
           </div>
           <div className="w-full lg:w-[40%] flex items-center justify-end">
-            <button
-              className="bg-white text-black px-4 py-2 rounded-md"
-              onClick={open}
-            >
-              Connect Wallet
-            </button>
+            {isConnected ? (
+              <button
+                className="bg-[#14c2a3] text-white px-4 py-2 rounded-md hover:bg-[#12a890] transition-colors"
+                onClick={open}
+              >
+                {formatAddress(address)}
+              </button>
+            ) : (
+              <button
+                className="bg-white text-black px-4 py-2 rounded-md hover:bg-gray-200 transition-colors"
+                onClick={open}
+              >
+                Connect Wallet
+              </button>
+            )}
           </div>
         </div>
 
@@ -55,7 +70,21 @@ function Navbar() {
             </button>
           )}
           <div className="flex justify-center items-center">
-            <ConnectWallet />
+            {isConnected ? (
+              <button
+                className="bg-[#14c2a3] text-white px-3 py-1.5 rounded-md text-sm hover:bg-[#12a890] transition-colors"
+                onClick={open}
+              >
+                {formatAddress(address)}
+              </button>
+            ) : (
+              <button
+                className="bg-white text-black px-3 py-1.5 rounded-md text-sm hover:bg-gray-200 transition-colors"
+                onClick={open}
+              >
+                Connect Wallet
+              </button>
+            )}
           </div>
         </div>
 

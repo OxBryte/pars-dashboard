@@ -1,21 +1,20 @@
-import React from 'react'
-import { Dashboard } from './index'
+import React from "react";
+import { Dashboard } from "./index";
 
 const MainContent = () => {
   return (
     <div>
-      <div className='h-[100vh] text-white lg:py-[3rem] py-[3rem] lg:flex flex-col gap-8 items-start overflow-auto px-6'>
+      <div className="min-h-[100vh] text-white lg:py-12 py-8 lg:flex flex-col gap-12 items-start overflow-auto px-6 lg:px-12">
         {/* header */}
-        <div className='flex flex-col gap-2 lg:mb-0 mb-6 items-start'>
-          
-          <h1 className='text-2xl'>Dashboard</h1>
-          <div className='bg-[#14c2a3] w-[70%] h-[3px]'></div>
+        <div className="flex flex-col gap-3 lg:mb-0 mb-8 items-start w-full">
+          <h1 className="text-3xl font-semibold text-white">Dashboard</h1>
+          <div className="bg-gradient-to-r from-[#14c2a3] to-transparent w-24 h-[2px]"></div>
         </div>
         {/* dashboard */}
         <Dashboard />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainContent
+export default MainContent;

@@ -4,8 +4,15 @@ import { useEffect, useState, useCallback } from "react";
 
 export default function WithdrawableDividend({ customAddress }) {
   const address = useAddress();
-  const { contract } = useContract("0x593649F70f836565e33f0BCe9af9503c243359B3");
-  const { data: balance, refetch: refetchBalance, isLoading, error } = useContractRead(contract, "withdrawableDividendOf", [address]);
+  const { contract } = useContract(
+    "0x593649F70f836565e33f0BCe9af9503c243359B3"
+  );
+  const {
+    data: balance,
+    refetch: refetchBalance,
+    isLoading,
+    error,
+  } = useContractRead(contract, "withdrawableDividendOf", [address]);
 
   const refetchData = useCallback(() => {
     refetchBalance();
@@ -20,12 +27,18 @@ export default function WithdrawableDividend({ customAddress }) {
   }, [refetchData]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="text-gray-500 text-sm">Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div className="text-red-400 text-sm">Error loading</div>;
   }
 
-  return <div>{balance ? balance.toString() : 'N/A'}</div>;
+  const formattedBalance = balance
+    ? Number(balance.toString()).toLocaleString()
+    : "N/A";
+
+  return (
+    <div className="text-2xl font-semibold text-white">{formattedBalance}</div>
+  );
 }

@@ -1,47 +1,30 @@
-import React from 'react'
-import { Home, Money } from '@mui/icons-material'
-import Link from 'next/link'
+import React from "react";
+import { Home, Money } from "@mui/icons-material";
+import Link from "next/link";
 
 const SideNav = () => {
   return (
-    <div className='hidden col-span-1 h-[100vh] text-white py-[3rem] lg:flex flex-col gap-8'>
-      <Link href='/'>
-        <div className='flex items-center w-[50%] justify-between text-gray-500 '>
-          <div className='h-full w-1  py-5 rounded'></div>
-          <div className='grid grid-cols-2 w-[50%]'>
-            <Home />
-            <div className='flex flex-col items-start gap-2'>
-              <p className='text-white'>Dashboard</p>
-            </div>
-          </div>
+    <div className="hidden lg:flex h-[100vh] w-56 text-white py-8 px-4 flex-col gap-1 border-r border-[#1a1a1a]">
+      <Link href="/">
+        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-[#1a1a1a] transition-all group">
+          <Home className="text-lg" />
+          <span className="font-medium text-sm">Dashboard</span>
         </div>
       </Link>
-      <Link href='/'>
-        <div className='flex items-center w-[50%] justify-between text-gray-500 '>
-          <div className='h-full w-1  py-5 rounded'></div>
-          <div className='grid grid-cols-2 w-[50%]'>
-            <Money />
-            <div className='flex flex-col items-start gap-2'>
-              <p className='text-white'>Trade</p>
-            </div>
-          </div>
+      <Link href="/">
+        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-[#1a1a1a] transition-all group">
+          <Money className="text-lg" />
+          <span className="font-medium text-sm">Trade</span>
         </div>
       </Link>
-      <Link href='/'>
-        <div className='flex items-center w-[50%] justify-between text-gray-500 '>
-          <div className='h-full w-1  py-5 rounded'></div>
-          <div className='grid grid-cols-2 w-[50%]'>
-            <Money />
-            <div className='flex flex-col items-start gap-2'>
-              <p className='text-white'>Staking</p>
-            </div>
-          </div>
+      <Link href="/">
+        <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-[#1a1a1a] transition-all group">
+          <Money className="text-lg" />
+          <span className="font-medium text-sm">Staking</span>
         </div>
       </Link>
-
-
     </div>
-  )
-}
+  );
+};
 
-export default SideNav
+export default SideNav;

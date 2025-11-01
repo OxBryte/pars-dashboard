@@ -13,13 +13,20 @@
   "dependencies": {
     "@mui/icons-material": "^5.14.0",
     "@mui/material": "^5.14.0",
+    "@reown/appkit": "^1.8.12",
+    "@reown/appkit-adapter-wagmi": "^1.8.12",
+    "@tanstack/react-query": "^5.90.5",
     "@thirdweb-dev/react": "^3",
     "@thirdweb-dev/sdk": "^3",
     "ethers": "^5",
+    "install": "^0.13.0",
     "next": "^13",
+    "npm": "^11.6.2",
     "react": "^18.2",
     "react-dom": "^18.2",
     "react-icons": "^4.10.1",
+    "viem": "^2.38.5",
+    "wagmi": "^2.19.2",
     "web3": "^4.0.3"
   },
   "devDependencies": {
@@ -28,5 +35,6 @@
     "eslint-config-next": "^13",
     "postcss": "^8.4.26",
     "tailwindcss": "^3.3.3"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

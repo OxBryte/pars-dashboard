@@ -4,6 +4,7 @@ import { BsX } from "react-icons/bs";
 import logo from "../assets/logo.png";
 import { ConnectWallet } from "@thirdweb-dev/react";
 import Image from "next/image";
+import { useAppKit } from "@reown/appkit/react";
 
 const navigation = [
   { name: "Dashboard", href: "#" },
@@ -13,6 +14,7 @@ const navigation = [
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { open, close } = useAppKit();
 
   return (
     <div>
@@ -22,7 +24,12 @@ function Navbar() {
             <Image src={logo} alt="Logo" />
           </div>
           <div className="w-full lg:w-[40%] flex items-center justify-end">
-            <ConnectWallet />
+            <button
+              className="bg-white text-black px-4 py-2 rounded-md"
+              onClick={open}
+            >
+              Connect Wallet
+            </button>
           </div>
         </div>
 
